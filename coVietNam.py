@@ -74,17 +74,20 @@ outer_radius = height / 3
 inner_radius = outer_radius * np.sin(np.pi / 10) / np.cos(np.pi / 5)
 
 
+# Hàm tạo ngôi sao năm cánh
 def star_points(center_x, center_y, outer_radius, inner_radius):
     points = []
-    angle = np.pi / 2  
+    angle = np.pi / 2  # Bắt đầu từ đỉnh ngôi sao (góc 90 độ)
     
     for i in range(5):
+        # Điểm trên vòng tròn ngoại tiếp
         x_out = center_x + outer_radius * np.cos(angle)
         y_out = center_y + outer_radius * np.sin(angle)
         points.append([x_out, y_out])
         
         angle += np.pi / 5
         
+        # Điểm trên vòng tròn nội tiếp
         x_in = center_x + inner_radius * np.cos(angle)
         y_in = center_y + inner_radius * np.sin(angle)
         points.append([x_in, y_in])
